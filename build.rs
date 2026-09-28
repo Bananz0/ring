@@ -314,13 +314,13 @@ fn ring_build_rs_main() {
     // If `.git` doesn't exist then assume that this is a packaged build where
     // we want to optimize for minimizing the build tools required: No Perl,
     // no nasm, etc.
-    let use_pregenerated = !is_git;
+    let use_pregenerated = true;
 
     // During local development, force warnings in non-Rust code to be treated
     // as errors. Since warnings are highly compiler-dependent and compilers
     // don't maintain backward compatibility w.r.t. which warnings they issue,
     // don't do this for packaged builds.
-    let force_warnings_into_errors = is_git;
+    let force_warnings_into_errors = false;
 
     let target = Target {
         arch,
